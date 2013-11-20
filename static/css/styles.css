@@ -1,0 +1,60 @@
+#map { 
+	position:absolute; 
+	top:0; 
+	bottom:0; 
+	width:100%; 
+	height:100%;
+}
+
+.map-container {
+	padding-top: 40px;
+}
+
+.map-well {
+	opacity: .77;
+	height: 600px;
+	overflow-y: auto;
+}
+
+.nav-tabs>li.active>a {
+	opacity: .77;
+}
+
+.legend .legend-scale ul {
+  margin: 0;
+  padding: 0;
+  float: left;
+  list-style: none;
+  }
+.legend .legend-scale ul li {
+  display: block;
+  float: left;
+  width: 50px;
+  margin-bottom: 6px;
+  text-align: center;
+  font-size: 80%;
+  list-style: none;
+  padding-right: 20px;
+  }
+.legend ul.legend-labels li span {
+  display: block;
+  float: left;
+  height: 15px;
+  width: 50px;
+  }
+.legend .legend-source {
+  font-size: 70%;
+  color: #999;
+  clear: both;
+  }
+.legend a {
+  color: #777;
+  }
+
+.map-legends {
+	opacity:.77;
+}
+
+.custom-active {
+  background-color: #bdbdbd;
+}

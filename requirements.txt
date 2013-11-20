@@ -1,0 +1,10 @@
+Flask==0.10.1
+Jinja2==2.7.1
+MarkupSafe==0.18
+Werkzeug==0.9.4
+cluster==1.1.2
+gunicorn==18.0
+networkx==1.8.1
+python-dateutil==1.5
+requests==2.0.1
+wsgiref==0.1.2
