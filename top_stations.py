@@ -30,7 +30,6 @@ def cluster_stations(stations, empty='empty'):
     format returned by prep_stations, and returns a list similar
     to the input list with the cluster number of each element added
     """
-    
     if empty == 'empty':
         tocluster = [i for i in stations if (i[3] - i[2])/float(i[3]) < .2]
     else:
@@ -115,4 +114,3 @@ def get_recs(empty):
         output.extend(make_recs(get_graph_breakdown(cluster), DIST_ENDPOINT))
 
     return output
-
