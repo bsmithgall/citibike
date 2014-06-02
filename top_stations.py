@@ -18,9 +18,10 @@ def prep_stations(url):
     _stations = requests.get(url).json()
     
     for _station in _stations['stationBeanList']:
-        stations.append([_station['stationName'], _station['id'],
-                         _station['availableDocks'], _station['totalDocks'],
-                         _station['latitude'], _station['longitude']])
+        if _station['statusKey'] == 1:
+            stations.append([_station['stationName'], _station['id'],
+                             _station['availableDocks'], _station['totalDocks'],
+                             _station['latitude'], _station['longitude']])
 
     return stations
 

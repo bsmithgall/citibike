@@ -3,7 +3,7 @@ from top_stations import get_recs
 
 app = Flask(__name__)
 
-@app.route('/_get_stations', methods=['GET','POST'])
+@app.route('/_get_stations', methods=['GET', 'POST'])
 def get_stations():
 
     empty = request.form['empty']
