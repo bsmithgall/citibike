@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, jsonify
+from flask import Flask, render_template, request, jsonify
 from top_stations import get_recs
 
 app = Flask(__name__)
@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/_get_stations', methods=['GET', 'POST'])
 def get_stations():
 
-    empty = request.form['empty']
+    empty = request.form.get('empty')
 
     if empty == 'empty':
         color = '#CB181D'
@@ -18,8 +18,10 @@ def get_stations():
     for i in recs:
         clean_recs.append({
             'Station': i[0],
-            'Percent Full': round((i[3] - i[2])/float(i[3])*100, 1),
-            })
+            'Percent Full': round(
+                (i[3] - i[2]) / float(i[3]) * 100, 1
+            )
+        })
         markers.append({
             'type': 'Feature',
             'geometry': {
@@ -34,9 +36,9 @@ def get_stations():
             }
         })
     if empty == 'empty':
-        return jsonify(recs = sorted(clean_recs), markers = markers)
+        return jsonify(recs=sorted(clean_recs), markers=markers)
     else:
-        return jsonify(recs = sorted(clean_recs, reverse=True), markers=markers)
+        return jsonify(recs=sorted(clean_recs, reverse=True), markers=markers)
 
 
 @app.route('/')

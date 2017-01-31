@@ -16,7 +16,7 @@ def prep_stations(url):
     retreived from the endpoint passed in above"""
     stations = []
     _stations = requests.get(url).json()
-    
+
     for _station in _stations['stationBeanList']:
         if _station['statusKey'] == 1:
             stations.append([_station['stationName'], _station['id'],
@@ -37,10 +37,10 @@ def cluster_stations(stations, empty='empty'):
         tocluster = [i for i in stations if (i[2])/float(i[3]) < .2]
     cl = KMeansClustering([(i[4], i[5]) for i in tocluster])
     clusters = cl.getclusters(4)
-    
+
     # Note that this returns a list of lists of lat/long tuples. We're
     # going to have to re-associate them back to the rest of the stations
-    
+
     clustered = []
     for ix, i in enumerate(clusters):
         for j in i:
@@ -110,7 +110,7 @@ def get_recs(empty):
     output = []
     stations_toclutser = prep_stations(STATIONS_ENDPOINT)
     stations_cluster = cluster_stations(stations_toclutser, empty)
-    for i in xrange(1,5):
+    for i in xrange(1, 5):
         cluster = [j for j in stations_cluster if j[-1] == i]
         output.extend(make_recs(get_graph_breakdown(cluster), DIST_ENDPOINT))
 

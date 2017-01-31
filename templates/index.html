@@ -1,4 +1,4 @@
-app{% extends "base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 
@@ -35,7 +35,7 @@ function getData(empty, elem) {
 
       jQuery.each(recs, function(idx, d){
         $(elem + ' tbody').append(
-          '<tr id="' + d.Station + '"><td>' + d.Station + '</td><td>' + d['Percent Full'] + '%</td></tr>')          
+          '<tr id="' + d.Station + '"><td>' + d.Station + '</td><td>' + d['Percent Full'] + '%</td></tr>')
       });
 
       mouseover()
@@ -71,7 +71,7 @@ function mouseover(){
   $('tr[id="'+_this+'"]').removeClass('custom-active');
   })
 }
- 
+
 </script>
 
 <div class="container map-container">
